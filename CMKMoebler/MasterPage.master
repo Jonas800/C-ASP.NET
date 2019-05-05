@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Src="~/UserControls/UserControl_Nyhedsbrev.ascx" TagPrefix="uc1" TagName="UserControl_Nyhedsbrev" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:Literal ID="Literal_Brødkrumme_Title" runat="server" Text="CMK Møbler "></asp:Literal></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <link href="ResponsiveMenu.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <h1>
+                    <a href="Default.aspx">CMK Møbler</a>
+                </h1>
+                <span onclick="openNav()"><i class="fa fa-bars fa-2x"></i></span>
+                <nav id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="openNav()"><i class="fa fa-times fa-2x"></i></a>
+                    <ul>
+                        <li>
+                            <a href="Nyhedsarkiv.aspx" class="<%= NavHighlight("/Nyhedsarkiv.aspx") %>">Nyhedsarkiv</a>
+                        </li>
+                        <li>
+                            <a href="Møbler.aspx" class="<%= NavHighlight("/Møbler.aspx") %>">Møbler</a>
+                        </li>
+                        <li>
+                            <a href="Kontakt.aspx" class="<%= NavHighlight("/Kontakt.aspx") %>">Kontakt</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="wrapper">
+                <h2>CMK Møbler
+                    <asp:Label ID="Label_Brødkrumme" CssClass="brødkrumme" runat="server"></asp:Label></h2>
+                <aside>
+                    <section>
+                        <h3>Møbler</h3>
+                        <asp:Repeater ID="Repeater_Møbel_Aside" runat="server" OnItemDataBound="Repeater_Møbel_Aside_ItemDataBound">
+                            <ItemTemplate>
+                                <asp:Repeater ID="Repeater_nested" runat="server">
+                                    <ItemTemplate>
+                                        <a href="Møbel.aspx?id=<%# Eval("fk_produkt_id") %>"><img src="<%# Eval("billede_sti", "/billeder/produkter/{0}") %>" /></a>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+
+                                <p><strong>Møbelserie</strong></p>
+                                <p><%# Eval("serie_navn") %></p>
+                                <p><strong>Designer</strong></p>
+                                <p><%# Eval("designer_navn") %></p>
+                                <p><strong>Design år</strong></p>
+                                <p><%# Eval("produkt_aar") %></p>
+                                <p><strong>Pris</strong></p>
+                                <p><%# Eval("produkt_pris") %></p>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </section>
+                    <section>
+                        <uc1:UserControl_Nyhedsbrev runat="server" ID="UserControl_Nyhedsbrev" />
+                    </section>
+                    <section>
+                        <h3>Kontaktoplysninger</h3>
+                        <asp:Repeater ID="Repeater_Kontaktoplysninger" runat="server">
+                            <ItemTemplate>
+                                <%# Eval("oplysning_kontakt") %>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </section>
+                </aside>
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <footer>
+                    CMK / RTS / Terminsprøve 2016 / <a href="/Admin/Default.aspx">Login</a>
+                </footer>
+            </div>
+        </div>
+    </form>
+
+    <script src="js/navOpen.js"></script>
+
+</body>
+</html>

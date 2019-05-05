@@ -1,0 +1,95 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Src="~/UserControl/UserControl_Kurv.ascx" TagPrefix="uc1" TagName="UserControl_Kurv" %>
+<%@ Register Src="~/UserControl/UserControl_Login.ascx" TagPrefix="uc1" TagName="UserControl_Login" %>
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <title></title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <header>
+                <a href="Default.aspx">
+                    <img src="/billeder/assets/banner.jpg" /></a>
+                <nav class="nav" id="nav">
+                    <ul>
+                        <li><a class="<%= NavHighlight("/Default.aspx") %>" href="Default.aspx">Forsiden</a></li>
+                        <li><a class="<%= NavHighlight("/Butikken.aspx", "/ProduktInfo.aspx") %>" href="Butikken.aspx">Butikken</a>
+                        </li>
+                        <li><a class="<%= NavHighlight("/Kontakt.aspx") %>" href="Kontakt.aspx">Kontakt</a></li>
+                    </ul>
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder_UnderMenu" runat="server"></asp:ContentPlaceHolder>
+                </nav>
+            </header>
+            <div class="content">
+                <aside>
+                    <div>
+                        <h2>Mest populære
+                        </h2>
+                        <ul>
+                            <asp:Repeater ID="Repeater_Populære" runat="server">
+                                <ItemTemplate>
+                                    <li>
+                                        <a href="ProduktInfo.aspx?id=<%# Eval("produkt_id") %>"><%# Eval("produkt_navn") %></a>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Links</h2>
+                        <asp:Repeater ID="Repeater_Sponsorer" runat="server">
+                            <ItemTemplate>
+                                <a href="<%# Eval("sponsor_url") %>">
+                                    <img src="<%# Eval("sponsor_billede", "/billeder/sponsor/{0}") %>" /></a>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </aside>
+                <div class="main">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <aside class="højre_kolonne">
+                    <div>
+                        <h2>Indkøbskurv</h2>
+                        <uc1:UserControl_Kurv runat="server" ID="UserControl_Kurv" />
+                    </div>
+                    <uc1:UserControl_Login runat="server" ID="UserControl_Login" />
+                </aside>
+            </div>
+            <footer>
+                <ul>
+                    <li>Mettes planteskole &#9679;</li>
+                    <asp:Repeater ID="Repeater_Footer" runat="server">
+                        <ItemTemplate>
+                            <li>
+                                <%# Eval("kontaktoplysning_adresse") %> &#9679;
+                            </li>
+                            <li>
+                                <%# Eval("kontaktoplysning_postnummer") %>
+                                <%# Eval("kontaktoplysning_by") %> &#9679;
+                            </li>
+                            <li>
+                                <%# Eval("kontaktoplysning_telefon").ToString().Insert(2, " ").Insert(5, " ").Insert(8, " ") %>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

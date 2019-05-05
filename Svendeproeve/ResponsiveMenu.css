@@ -1,0 +1,100 @@
+﻿/******JAVASCRIPT*******/
+
+.closebtn {
+    display: none;
+}
+
+header span {
+    display: none;
+}
+
+@media screen and (max-width: 552px) {
+
+    
+
+    .Panel_Søgning {
+        overflow-x: scroll;
+    }
+
+    header span {
+        color: #8d9d9d;
+        display: inline;
+        float: right;
+        padding: 9px 15px 9px 108px;
+        cursor: pointer;
+    }
+
+        header span:hover {
+            background-color: #333333;
+            color: #ff7200;
+        }
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #222222;
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+        .sidenav a {
+            padding: 0;
+            text-decoration: none;
+            display: block;
+        }
+
+    header nav {
+        margin: 0 !important;
+    }
+
+    header ul {
+        margin: 0 auto;
+        padding: 0;
+        padding-top: 48px;
+        text-align: center;
+    }
+
+        header ul li {
+            display: block;
+            margin: 0 !important;
+            text-align: center;
+            width: 100%;
+        }
+
+            header ul li a {
+                margin: 0 auto;
+                text-align: center;
+                padding: 20px 0 !important;
+                width: 100%;
+            }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 9px 15px 9px 115px;
+    }
+
+    .sidenav.navOpen {
+        width: 150px;
+    }
+
+    #main {
+        transition: margin-left .5s;
+        padding: 16px;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}

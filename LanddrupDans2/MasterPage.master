@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Src="~/UserControl_Navigation_User.ascx" TagPrefix="uc1" TagName="UserControl_Navigation_User" %>
+<%@ Register Src="~/UserControl_Navigation_Login.ascx" TagPrefix="uc1" TagName="UserControl_Navigation_Login" %>
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="font-awesome.min.css" rel="stylesheet" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <h1><a href="Default.aspx">Landdrup Dans
+                    <img src="assets/Logo.png" /></a></h1>
+                <uc1:UserControl_Navigation_Login runat="server" ID="UserControl_Navigation_Login" />
+                <asp:Panel ID="Panel_Logout_Customer" runat="server" Visible="false">
+                    <div class="login_position">
+                        <a class="login" href="Kundeprofil.aspx">Kundeprofil</a>
+
+                        <a class="login" href="Login.aspx?logout=true">Logout</a>
+                    </div>
+                </asp:Panel>
+            </header>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder_Image" runat="server"></asp:ContentPlaceHolder>
+            <uc1:UserControl_Navigation_User runat="server" ID="UserControl_Navigation_User" />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageAdmin.master.cs" Inherits="MasterPageAdmin" %>
+
+<%@ Register Src="~/UserControl_Navigation_Admin.ascx" TagPrefix="uc1" TagName="UserControl_Navigation_Admin" %>
+<%@ Register Src="~/UserControl_Navigation_Login.ascx" TagPrefix="uc1" TagName="UserControl_Navigation_Login" %>
+
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="font-awesome.min.css" rel="stylesheet" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <h1><a href="Default.aspx">Landdrup Dans
+                    <img src="assets/Logo.png" /></a></h1>
+                <uc1:UserControl_Navigation_Login runat="server" ID="UserControl_Navigation_Login_Yes" />
+
+            </header>
+            <uc1:UserControl_Navigation_Admin runat="server" ID="UserControl_Navigation_Admin" />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

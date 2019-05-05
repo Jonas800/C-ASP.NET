@@ -1,0 +1,101 @@
+﻿body {
+}
+
+.outer_box {
+    /*height: 500px;
+    width: 500px;*/
+    display: inline-block;
+    /*overflow-y: scroll;
+    overflow-x: hidden;*/
+    margin-top: 50px;
+    margin-right: 50px;
+    /*border: 1px solid black;*/
+    /*padding: 20px;*/
+    display:block !important;
+}
+.dark{
+    background-color:#212121 !important;
+    color:#eeeeee !important;
+    text-shadow:none !important;
+}
+light{
+    background-color:white;
+}
+.inner_box img {
+    width: 100%;
+}
+.inner_box{
+    pointer-events:none;
+}
+.inner_box a{
+    pointer-events:auto;
+}
+
+h2 {
+    margin-top: 0;
+}
+/*#flip-checkbox-2{
+    position:absolute;
+    top:70px;
+    z-index:10000;
+}*/
+.ui-page{
+    background-color:transparent;
+    display:block !important;
+}
+
+/* Set the background image sources */
+/*#newyork {
+    background-color: green;
+    height: 900px;
+    width: 100%;
+}
+
+#buenosaires {
+    background-color: red;
+    height: 900px;
+    width: 100%;
+}*/
+
+#paris {
+    background-color: silver;
+    height: 500px;
+    width: 500px;
+}
+
+#capetown {
+    background-color: white;
+}
+
+/*#seoul {
+    background-image: url("../_assets/img/seoul.jpg");
+}*/
+
+#sydney {
+    background-image: url("../_assets/img/sydney.jpg");
+}
+/* Background settings */
+.demo-page {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+    /* Transparent footer */
+    .demo-page .ui-footer {
+        background: none;
+        border: none;
+        bottom: 0;
+    }
+/* The footer won't have a height because there are only two absolute positioned elements in it.
+So we position the buttons from the bottom. */
+.control.ui-btn-left,
+.trivia-btn.ui-btn-right {
+    top: auto;
+    bottom: 7px;
+    margin: 0;
+}
+/* Custom styling for the trivia source */
+small {
+    font-size: .75em;
+    color: #666;
+}

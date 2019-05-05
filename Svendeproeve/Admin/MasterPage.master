@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admin_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:Literal ID="Literal_Brødkrumme_Title" runat="server" Text="Motionscentret Administration: "></asp:Literal></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Panel.css" rel="stylesheet" />
+    <link href="ResponsiveMenu.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../js/navOpen.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <h1>
+                    <a href="Default.aspx">Motionscentret</a>
+                </h1>
+                <asp:Panel ID="Panel_Nav" runat="server" CssClass="Panel_Nav">
+
+                    <span onclick="openNav()"><i class="fa fa-bars fa-2x"></i></span>
+                    <nav id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="openNav()"><i class="fa fa-times fa-2x"></i></a>
+                        <ul>
+                            <li><a href="Aktiviteter.aspx">Aktiviteter</a></li>
+                            <li><a href="Hold.aspx">Hold</a>
+                            <li><a href="Priser.aspx">Priser</a></li>
+                            <li><a href="Oplysninger.aspx">Oplysninger</a></li>
+                            <li><a href="Brugere.aspx">Brugere</a></li>
+                            <li><a href="Medlemmer.aspx">Medlemmer</a></li>
+                            <li><a href="../Default.aspx">Se hjemmeside</a></li>
+                            <li><a href="?logud=true">Logud</a></li>
+                        </ul>
+                    </nav>
+                </asp:Panel>
+            </header>
+            <div class="adminContent">
+                <h2>
+                    <asp:Label ID="Label_Brødkrumme" CssClass="brødkrumme" runat="server"></asp:Label></h2>
+                <asp:Panel ID="Panel_Besked" CssClass="Panel_Besked" runat="server" Visible="false">
+                    <asp:Label ID="Label_Besked" runat="server"></asp:Label>
+                </asp:Panel>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <footer>
+                    &copy; <strong>Motionscentret</strong> Administration
+                </footer>
+            </div>
+
+        </div>
+    </form>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.2.5/css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lightbox/css/lightbox.css"/>
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <header>
+            <h1>GALLERI</h1>
+            <nav>
+                <a href="Default.aspx">Home</a>
+                <div class="dropdown">
+                  <span>Galleries</span>
+                  <div class="dropdown-content">
+                    <asp:Repeater ID="Repeater_Galleries" runat="server">
+                        <ItemTemplate>
+                            <a href="Default.aspx?category=<%# Eval("category_id") %>"><%# Eval("category_name") %></a>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                  </div>
+                </div>
+                 <div class="dropdown dropdown_slider">
+                  <span>Slider</span>
+                  <div class="dropdown-content">
+                    <asp:Repeater ID="Repeater_Slider" runat="server">
+                        <ItemTemplate>
+                            <a href="Default.aspx?slider=<%# Eval("category_id") %>"><%# Eval("category_name") %></a>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                  </div>
+                </div>
+                <a href="Login.aspx">Login</a>
+            </nav>
+        </header>
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

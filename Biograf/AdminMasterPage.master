@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMasterPage.master.cs" Inherits="AdminMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" />
+    <link href="AdminStyleSheet.css" rel="stylesheet" />
+    <link href="SharedStyleSheetcss.css" rel="stylesheet" />
+    <link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <a href="Default.aspx">
+                    <img src="/Assets/logo.png" /></a>
+            </header>
+            <div class="Container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <footer>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="AdminFilm.aspx"><i class="fa fa-film fa-2x" aria-hidden="true"></i>Film</a>
+                        </li>
+                        <li>
+                            <a href="AdminGenre.aspx"><i class="fa fa-heart fa-2x" aria-hidden="true"></i>Genrer</a>
+                        </li>
+                        <li>
+
+                            <a href="AdminBrugere.aspx"><i class="fa fa-user fa-2x" aria-hidden="true"></i>Brugere</a>
+                        </li>
+                        <li>
+                            <a href="AdminTilbud.aspx"><i class="fa fa-money fa-2x" aria-hidden="true"></i>Tilbud</a>
+                        </li>
+                        <li>
+                            <a href="AdminAnmeldelser.aspx"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i>Anmeldelser</a>
+                        </li>
+                        <li>
+                            <a href="Default.aspx"><i class="fa fa-home fa-2x" aria-hidden="true"></i>Forside</a>
+                        </li>
+                        <li>
+                            <a href="?logout=true" onclick="return confirm('Dette vil logge dig ud')"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>Log ud</a>
+                        </li>
+                    </ul>
+                </nav>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

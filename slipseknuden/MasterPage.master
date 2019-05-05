@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="content">
+
+                <header>
+                    <h1>
+                        <a href="Default.aspx">
+                            <img src="billeder/SlipseKnuden.png" alt="SlipseKnuden" />
+                        </a>
+                    </h1>
+                </header>
+                <asp:Panel ID="Panel_Logout_Button" CssClass="online_user" runat="server" Visible="false">
+                    <asp:Repeater ID="Repeater_Online" runat="server">
+                        <ItemTemplate>
+                            <a class="goto_admin" href="Admin.aspx">
+                                <%# Eval("user_firstname") %> <%# Eval("user_lastname") %>
+                            </a>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <a href="?logout=true" class="login">Logud</a>
+                </asp:Panel>
+                <asp:Panel ID="Panel_Login_Button" CssClass="online_user" runat="server">
+                    <a href="Login.aspx" class="login">Login</a>
+                </asp:Panel>
+
+
+                <div class="border">
+                    <aside class="left">
+                        <nav>
+                            <a href="Default.aspx">Forside</a>
+                            <a href="Kontakt.aspx">Kontakt</a>
+                            <asp:Repeater ID="Repeater_Nav" runat="server">
+                                <ItemTemplate>
+                                    <a href="Categories.aspx?id=<%# Eval("category_id") %>"><%# Eval("category_name") %></a>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </nav>
+                    </aside>
+
+                    <div class="mid">
+                        <asp:ContentPlaceHolder ID="Main" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+
+                    <aside class="right">
+                        <asp:Repeater ID="Repeater_Aside_Right" runat="server">
+                            <ItemTemplate>
+                                <figure>
+                                    <a href="Details.aspx?id=<%# Eval("product_id") %>">
+
+                                        <figcaption><%# Eval("product_name") %></figcaption>
+                                        <img src="<%# Eval("product_image", "/billeder/thumbs/{0}") %>" />
+                                        <figcaption><%# Eval("product_price") %> kr,-</figcaption>
+                                    </a>
+                                </figure>
+
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </aside>
+                </div>
+            </div>
+            <footer>
+                SlipseKnuden &copy; 2016
+            </footer>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

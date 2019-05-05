@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admin_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><asp:Literal ID="Literal_Brødkrumme_Title" runat="server" Text="CMK Møbler Admin: "></asp:Literal></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Panel.css" rel="stylesheet" />
+    <link href="ResponsiveMenu.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../js/navOpen.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <h1>
+                    <a href="../Default.aspx">CMK Møbler</a>
+                </h1>
+                <asp:Panel ID="Panel_Nav" runat="server" CssClass="Panel_Nav">
+
+                    <span onclick="openNav()"><i class="fa fa-bars fa-2x"></i></span>
+                    <nav id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="openNav()"><i class="fa fa-times fa-2x"></i></a>
+                        <ul>
+                            <li><a href="Produkter.aspx">Produkter</a></li>
+                            <li><a href="Designere.aspx">Designere</a></li>
+                            <li><a href="Møbelserier.aspx">Møbelserier</a></li>
+                            <li><a href="Nyheder.aspx">Nyheder</a></li>
+                            <li><a href="Oplysninger.aspx">Oplysninger</a></li>
+                            <li><a href="Brugere.aspx">Brugere</a></li>
+                            <li><a href="Nyhedsbrevsliste.aspx">Nyhedsbrevsliste</a></li>
+                            <li><a href="../Default.aspx">Se hjemmeside</a></li>
+                            <li><a href="?logud=true">Logud</a></li>
+                        </ul>
+                    </nav>
+                </asp:Panel>
+            </header>
+            <div class="adminContent">
+                 <h2><asp:Label ID="Label_Brødkrumme" CssClass="brødkrumme" runat="server"></asp:Label></h2>   
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <footer>
+                    CMK / RTS / Terminsprøve 2016
+                </footer>
+            </div>
+
+        </div>
+    </form>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</body>
+</html>

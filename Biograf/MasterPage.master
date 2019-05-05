@@ -1,0 +1,69 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <link href="SharedStyleSheetcss.css" rel="stylesheet" />
+    <link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <a href="Default.aspx">
+                    <img src="/Assets/logo.png" /></a>
+
+            </header>
+            <div class="Container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+                <div class="Tilbud">
+                    <asp:Image ID="Image_Tilbud" runat="server" />
+                </div>
+            </div>
+            <footer>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="Tilbude.aspx"><i class="fa fa-money fa-2x" aria-hidden="true"></i>
+                                Tilbud</a>
+                        </li>
+                        <li>
+                            <a href="Filmliste.aspx"><i class="fa fa-th-list fa-2x" aria-hidden="true"></i>
+                                Liste</a>
+                        </li>
+                        <asp:Literal ID="Literal_Profil" runat="server">
+                            <li>
+                                <a href="Profil.aspx"><i class="fa fa-user fa-2x" aria-hidden="true"></i>Profil</a>
+                            </li>
+                        </asp:Literal>
+                        <asp:Literal ID="Literal_Login" runat="server">
+                            <li>
+                                <a href="Login.aspx"><i class="fa fa-user fa-2x" aria-hidden="true"></i>
+ Login</a>
+                            </li>
+                        </asp:Literal>
+                        <asp:Literal ID="Literal_Logud" runat="server">
+                            <li>
+                                <a href="?logout=true" onclick="return confirm('Dette vil logge dig ud')"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>Log ud</a>
+                            </li>
+                        </asp:Literal>
+                    </ul>
+                </nav>
+            </footer>
+
+
+            <asp:ScriptManager ID="ScriptManager_Point" runat="server"></asp:ScriptManager>
+            <asp:Timer ID="Timer_Point" runat="server" OnTick="Timer_Point_Tick" Interval="1800000"></asp:Timer>
+        </div>
+    </form>
+</body>
+</html>

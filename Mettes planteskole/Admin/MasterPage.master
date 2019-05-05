@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admin_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="Panel.css" rel="stylesheet" />
+    <link href="../StyleSheet.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <span onclick="openNav()">MENU</span>
+        <div class="admin">
+            <aside id="mySidenav" class="sidenav navOpen">
+                <nav>
+                    <a href="javascript:void(0)" class="closebtn" onclick="openNav()">&times;</a>
+
+                    <ul>
+                        <li><a class="<%= NavHighlight("/Default.aspx") %>" href="../Default.aspx">Gå til hjemmesiden</a></li>
+                        <li>
+                            <h5>Butikken</h5>
+                        </li>
+                        <li><a class="<%= NavHighlight("/Admin/Produkter.aspx") %>" href="Produkter.aspx">Produkter</a></li>
+                        <li><a class="<%= NavHighlight("/Admin/Kategorier.aspx") %>" href="Kategorier.aspx">Kategorier</a></li>
+                        <li><a class="<%= NavHighlight("/Admin/Dyrkningstider_Jordtyper.aspx") %>" href="Dyrkningstider_Jordtyper.aspx">Dyrkningstider og jordtyper</a></li>
+                        <li><a class="<%= NavHighlight("/Admin/Ordrer.aspx") %>" href="Ordrer.aspx">Ordrer</a></li>
+                        <li>
+                            <h5>Hjemmesiden</h5>
+                        </li>
+                        <li><a class="<%= NavHighlight("/Admin/Forsiden.aspx") %>" href="Forsiden.aspx">Forsiden</a></li>
+                        <li><a class="<%= NavHighlight("/Admin/Kontaktoplysninger.aspx") %>" href="Kontaktoplysninger.aspx">Kontaktoplysninger</a></li>
+                        <li><a class="<%= NavHighlight("/Admin/Åbningstider.aspx") %>" href="Åbningstider.aspx">Åbningstider</a></li>
+                        <li><a class="<%= NavHighlight("/Admin/Sponsorer.aspx") %>" href="Sponsorer.aspx">Sponsorer</a></li>
+                        <li>
+                            <h5>Brugerkontrol</h5>
+                        </li>
+                        <li><a class="<%= NavHighlight("/Admin/Konti.aspx") %>" href="Konti.aspx">Egen konti</a></li>
+                        <li><a class="<%= NavHighlight("/Admin/Brugere.aspx") %>" href="Brugere.aspx">Kunder</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <div class="main main_admin">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+    <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="../navOpen.js"></script>
+</body>
+</html>

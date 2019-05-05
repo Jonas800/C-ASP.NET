@@ -1,0 +1,227 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Src="~/UserControls/UserControl_Nyhedsbrev.ascx" TagPrefix="uc1" TagName="UserControl_Nyhedsbrev" %>
+<%@ Register Src="~/UserControls/UserControl_Login.ascx" TagPrefix="uc1" TagName="UserControl_Login" %>
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:Literal ID="Literal_Brødkrumme_Title" runat="server" Text="Motionscentret &bull; "></asp:Literal></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <%--<link href="ResponsiveMenu.css" rel="stylesheet" />--%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+
+            <header>
+                <div class="h1_wrap">
+                    <h1>
+                        <a href="Default.aspx"><span class="heading">Motioncentret</span><span class="subHeading">Styrke- og Holdtræning</span></a>
+                    </h1>
+                    <nav class="mininav">
+                        <asp:Panel ID="Panel_Login" runat="server">
+                            <a href="?action=login">LOGIN </a><span class="separator">|</span>
+                            <a href="Regler.aspx">REGLER</a>
+                        </asp:Panel>
+                        <asp:Panel ID="Panel_Logud" runat="server" Visible="false">
+                            <a href="?action=logud">LOGUD </a><span class="separator">|</span>
+                            <a href="Regler.aspx">REGLER</a>
+                        </asp:Panel>
+                    </nav>
+                    <asp:Panel ID="Panel_Login_Form" Visible="false" CssClass="Panel_Login_Form" runat="server">
+                        <uc1:UserControl_Login runat="server" ID="UserControl_Login" />
+                    </asp:Panel>
+                </div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="Default.aspx" class="<%= NavHighlightWithEmpty("/Default.aspx") %>">FORSIDE</a>
+                        </li>
+                        &bull;
+                        <li>
+                            <a href='<%= SiteReferalOnRole() %>' class="<%= NavHighlight("/" + SiteReferalOnRole()) %>"><%= SiteNameOnRole() %></a>
+                        </li>
+                        &bull;
+                         <li>
+                             <a href="Priser.aspx" class="<%= NavHighlight("/Priser.aspx") %>">PRISER</a>
+                         </li>
+                        &bull;
+                         <li>
+                             <a href="Aktiviteter.aspx" class="<%= NavHighlight("/Aktiviteter.aspx") %>">AKTIVITETER</a>
+                         </li>
+                        &bull;
+                        <li>
+                            <a href="Kontakt.aspx" class="<%= NavHighlight("/Kontakt.aspx") %>">KONTAKT</a>
+                        </li>
+                        <asp:Literal ID="Literal_Admin" Visible="false" Text='&bull;<li><a href="/Admin/">ADMIN</a></li>' runat="server"></asp:Literal>
+                    </ul>
+                </nav>
+                <div class="banner">
+                    <img src="Resources/Billeder til web/banner.jpg" />
+                </div>
+            </header>
+            <div class="wrapper">
+
+                <div class="content">
+                    <h2>
+                        <asp:Label ID="Label_Brødkrumme" CssClass="brødkrumme" runat="server"></asp:Label></h2>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+
+                <asp:Panel ID="Panel_Aside" runat="server">
+                    <aside>
+                        <asp:Panel ID="Panel_Mine_Point" Visible="false" runat="server">
+                            <div>
+                                <h4><i class="fa fa-caret-right"></i>Mine point</h4>
+                                <asp:Repeater ID="Repeater_Mine_Point" runat="server">
+                                    <HeaderTemplate>
+                                        <table>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <tr>
+                                            <td><%# Eval("bruger_navn") %></td>
+                                            <td><%# (String.IsNullOrEmpty(Eval("total_point").ToString()) ? "0" : Eval("total_point")) %> point</td>
+                                        </tr>
+                                    </ItemTemplate>
+                                    <FooterTemplate></table></FooterTemplate>
+                                </asp:Repeater>
+                            </div>
+                        </asp:Panel>
+
+                        <div>
+                            <h4><i class="fa fa-caret-right"></i>Top 5 - listen</h4>
+                            <div>
+                                <asp:Repeater ID="Repeater_Top5" runat="server">
+                                    <HeaderTemplate>
+                                        <table>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <tr>
+                                            <td><%# Eval("bruger_navn") %></td>
+                                            <td><%# (String.IsNullOrEmpty(Eval("total_point").ToString()) ? "0" : Eval("total_point")) %> point</td>
+                                        </tr>
+                                    </ItemTemplate>
+                                    <FooterTemplate></table></FooterTemplate>
+                                </asp:Repeater>
+                            </div>
+                        </div>
+                        <div>
+                            <h4><i class="fa fa-caret-right"></i>Åbningstider</h4>
+                            <div>
+                                <asp:Repeater ID="Repeater_Åbningstider" runat="server">
+                                    <ItemTemplate>
+                                        <%# Eval("oplysning_åbningstid") %>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </div>
+                        </div>
+                        <div>
+                            <h4><i class="fa fa-caret-right"></i>Tilbud</h4>
+                            <div>
+                                <asp:Repeater ID="Repeater_Tilbud" runat="server">
+                                    <HeaderTemplate>
+                                        <table>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <tr>
+                                            <td><%# Eval("pris_overskrift") %></td>
+                                            <td><%# Eval("pris_nu", "{0:F2}") %> kr</td>
+                                        </tr>
+                                    </ItemTemplate>
+                                    <FooterTemplate></table></FooterTemplate>
+                                </asp:Repeater>
+                            </div>
+                        </div>
+                    </aside>
+                </asp:Panel>
+
+
+
+                <asp:Panel ID="Panel_Kontakt" runat="server" CssClass="kontaktFormular" Visible="false">
+
+                    <h4><i class="fa fa-caret-right"></i>Kom i kontakt med os</h4>
+                    <label for="TextBox_Navn">Dit navn:</label>
+                    <asp:TextBox ID="TextBox_Navn" runat="server" ValidationGroup="Panel_Kontakt"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_Navn" runat="server" ControlToValidate="TextBox_Navn" ValidationGroup="Panel_Kontakt" ErrorMessage="Skal udfyldes" ForeColor="DarkRed"></asp:RequiredFieldValidator>
+
+                    <label for="TextBox_Adresse">Din adresse:</label>
+                    <asp:TextBox ID="TextBox_Adresse" ValidationGroup="Panel_Kontakt" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_Adresse" runat="server" ControlToValidate="TextBox_Adresse" ErrorMessage="Skal udfyldes" ValidationGroup="Panel_Kontakt" ForeColor="DarkRed"></asp:RequiredFieldValidator>
+
+                    <label for="TextBox_Email">Din email:</label>
+                    <asp:TextBox ID="TextBox_Email" ValidationGroup="Panel_Kontakt" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_Email" runat="server" ControlToValidate="TextBox_Email" ErrorMessage="Skal udfyldes" ValidationGroup="Panel_Kontakt" Display="Dynamic" ForeColor="DarkRed"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator_Email" runat="server" ErrorMessage="Ikke en gyldig email" ValidationGroup="Panel_Kontakt" ControlToValidate="TextBox_Email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic" ForeColor="DarkRed"></asp:RegularExpressionValidator>
+
+                    <label for="TextBox_Kommentar">Dit spørgsmål:</label>
+                    <asp:TextBox ID="TextBox_Kommentar" ValidationGroup="Panel_Kontakt" runat="server" TextMode="MultiLine"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_Kommentar" runat="server" ValidationGroup="Panel_Kontakt" ControlToValidate="TextBox_Kommentar" ErrorMessage="Skal udfyldes" Display="Dynamic" ForeColor="DarkRed"></asp:RequiredFieldValidator>
+
+                    <asp:Button ID="Button_Send" ValidationGroup="Panel_Kontakt" runat="server" OnClick="Button_Send_Click" Text="Send" />
+                    <asp:Panel ID="Panel_Besked" Visible="false" CssClass="Panel_Besked" runat="server">
+                        <asp:Label ID="Label_Besked" runat="server"></asp:Label>
+                    </asp:Panel>
+                </asp:Panel>
+
+
+
+
+                <asp:Panel ID="Panel_Bliv_Medlem" runat="server" CssClass="kontaktFormular" DefaultButton="Button_Gem" Visible="false">
+                    <h4><i class="fa fa-caret-right"></i>Ansøgning</h4>
+
+                    <label>Dit navn:</label>
+                    <asp:TextBox ID="TextBox_Opret_Navn" runat="server" ValidationGroup="Panel_Bliv_Medlem"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_Opret_Navn" runat="server" ControlToValidate="TextBox_Opret_Navn" ValidationGroup="Panel_Bliv_Medlem" ForeColor="DarkRed" ErrorMessage="Skal udfyldes"></asp:RequiredFieldValidator>
+
+                    <label>Din adresse:</label>
+                    <asp:TextBox ID="TextBox_Opret_Adresse" ValidationGroup="Panel_Bliv_Medlem" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_Opret_Adresse" runat="server" ControlToValidate="TextBox_Opret_Adresse" ValidationGroup="Panel_Bliv_Medlem" ForeColor="DarkRed" ErrorMessage="Skal udfyldes"></asp:RequiredFieldValidator>
+
+                    <label>Din email:</label>
+                    <asp:TextBox ID="TextBox_Opret_Email" ValidationGroup="Panel_Bliv_Medlem" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_Opret_Email" ForeColor="DarkRed" runat="server" ControlToValidate="TextBox_Opret_Email" ValidationGroup="Panel_Bliv_Medlem" ErrorMessage="Skal udfyldes" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator_Opret_Email" runat="server" ErrorMessage="Ikke en gyldig email" ControlToValidate="TextBox_Opret_Email" ForeColor="DarkRed" ValidationGroup="Panel_Bliv_Medlem" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:Label ID="Label_Error" runat="server"></asp:Label>
+
+                    <label class="yesmargin">Vælg password:</label>
+                    <asp:TextBox ID="TextBox_Kodeord" CssClass="yesmargin" ValidationGroup="Panel_Bliv_Medlem" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_Kodeord" runat="server" ControlToValidate="TextBox_Kodeord" ValidationGroup="Panel_Bliv_Medlem" ForeColor="DarkRed" ErrorMessage="Skal udfyldes"></asp:RequiredFieldValidator>
+
+                    <label class="nomargin">Bekræft password:</label>
+                    <asp:TextBox ID="TextBox_Kodeord_Gentag" ValidationGroup="Panel_Bliv_Medlem" TextMode="Password" runat="server"></asp:TextBox>
+                    <asp:CompareValidator ID="CompareValidator_Kodeord" ValidationGroup="Panel_Bliv_Medlem" ForeColor="DarkRed" runat="server" ControlToCompare="TextBox_Kodeord_Gentag" ControlToValidate="TextBox_Kodeord" ErrorMessage="Kodeord er ikke ens"></asp:CompareValidator>
+
+                    <label class="checkbox">Jeg har læst og accepterer centrets regler<asp:CheckBox ID="CheckBox_Regler" runat="server" /></label>
+
+                    <asp:Label ID="Label_Checkbox_Error" runat="server" CssClass="checkboxError"></asp:Label>
+
+                    <asp:Panel ID="Panel_Besked2" CssClass="Panel_Besked" runat="server" Visible="false">
+                        <asp:Label ID="Label_Besked2" runat="server"></asp:Label>
+                    </asp:Panel>
+
+                    <asp:Button ID="Button_Gem" OnClick="Button_Gem_Click" ValidationGroup="Panel_Bliv_Medlem" runat="server" Text="Send" />
+                </asp:Panel>
+            </div>
+            <footer>
+                <asp:Label ID="Label_Footer" runat="server"></asp:Label>
+            </footer>
+        </div>
+    </form>
+
+    <script src="js/navOpen.js"></script>
+
+</body>
+</html>

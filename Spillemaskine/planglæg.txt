@@ -1,0 +1,20 @@
+Spillemaskine:
+
+Hjul med syv symboler
+
+Radiobuttonlist med credit bets: 1, 5, 10
+
+Button med Insert credit, som ligger credit over i en label med totale credits
+
+Button med SPIN, som starter spillet
+
+SPIN-knappen skal vises/virke 'while' credit er over nul
+
+Gevinster: 1-7 bonus credits
+
+Objektet Spil:
+
+egenskaber
+int credit
+list<string> billede
+

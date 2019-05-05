@@ -1,0 +1,11 @@
+﻿body {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.spin {
+    padding: 20px 50px;
+    font-size: 40px;
+    border-radius: 50px;
+}

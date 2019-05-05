@@ -1,0 +1,238 @@
+﻿body {
+    height: 100vh;
+}
+
+.admin {
+    height: 100vh;
+    display: flex;
+}
+
+aside {
+}
+
+.main {
+    width: 100% !important;
+}
+
+/*****TIL BILLEDE GALLERIER*****/
+.galleri {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.billede {
+    margin:10px 20px 10px 0;
+    border:1px solid black;
+}
+.billede a:last-of-type{
+    color:red;
+    float:right;
+}
+
+
+.admin h5 {
+    margin-top: 10px;
+    font-size: 10pt;
+}
+
+.admin {
+    width: 100%;
+}
+
+    .admin aside {
+        padding: 0;
+        height: 100vh;
+    }
+
+    .admin nav {
+        margin: 0;
+        width: 160px;
+        height: 100%;
+    }
+
+        .admin nav ul {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+            .admin nav ul li {
+                text-align: left;
+                width: 150px;
+                display: inline-block;
+                padding: 0 5px;
+            }
+
+                .admin nav ul li a {
+                    width: 100%;
+                    color: black;
+                    height: auto;
+                }
+
+.main_admin {
+    width: 70%;
+    overflow-x: auto;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.a_opretprodukt {
+    padding: 0 !important;
+    text-decoration: underline !important;
+    margin-bottom: 20px !important;
+    display: block;
+    font-weight: 900 !important;
+}
+
+.main_admin a {
+    text-decoration: none;
+    font-size: 15px;
+    color: #8AB512;
+    padding: 2px;
+    font-weight: 600;
+}
+
+
+
+.main_admin table {
+    width: auto;
+}
+
+    .main_admin table th {
+        text-align: left;
+    }
+
+    .main_admin table td {
+        text-align: center;
+    }
+
+.main_admin table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 3px;
+}
+
+.main_admin input {
+    display: block;
+    padding: 5px;
+}
+
+    .main_admin input[type='text'] {
+        width: 400px;
+        border: 1px solid #8AB512;
+    }
+
+    .main_admin input[type='file'] {
+        padding: 0;
+    }
+
+    .main_admin input[type='checkbox'] {
+        display: inline-block;
+    }
+
+    .main_admin input[type='submit'] {
+        margin: 20px 0;
+        width: 400px;
+        background-color: #EEEEEE;
+        border: 1px solid #8AB512;
+        box-sizing: content-box;
+        display: block;
+    }
+
+.main_admin img {
+    display: block;
+}
+
+.main_admin textarea {
+    padding: 5px;
+    display: block;
+    width: 400px;
+    height: 200px;
+    border: 1px solid #8AB512;
+}
+
+.main_admin select {
+    display: block;
+    width: 400px;
+    border: 1px solid #8AB512;
+    height: 30px;
+    padding: 0 5px;
+    box-sizing: content-box;
+}
+
+.order {
+    width: 40px !important;
+}
+
+.ordrer_table {
+}
+
+    .ordrer_table tr:first-of-type {
+        background-color: #8AB512;
+    }
+
+    .ordrer_table tr:nth-of-type(3) {
+        background-color: #86C46A;
+    }
+
+.retOrdrer {
+    margin-bottom: 20px;
+    display: block;
+    width: 120px;
+}
+
+.admin_udsolgt {
+    background-color: darkred;
+}
+/******JAVASCRIPT*******/
+.sidenav {
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: cornflowerblue;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: snow;
+        display: block;
+        
+    }
+
+        .sidenav a:hover, .offcanvas a:focus {
+            color: #f1f1f1;
+        }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    .sidenav.navOpen{
+        width: 400px;
+    }
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}

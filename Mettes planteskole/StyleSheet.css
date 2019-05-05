@@ -1,0 +1,494 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-size: 10pt;
+    font-family: Arial;
+    line-height: 14pt;
+    background-color: #D0D6B8;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 785px;
+    background-color: #FFFFFF;
+}
+
+h2 {
+    border-bottom: 1px dotted;
+    font-size: 12pt;
+    font-weight: 100;
+    margin-bottom: 30px;
+    color: #8AB512;
+}
+
+h3 {
+    color: #8AB512;
+    font-size: 12pt;
+    font-weight: 100;
+}
+
+/*********FORMULARER**********/
+.form {
+}
+
+    .form label {
+        color: black;
+        font-size: 10pt;
+        display: inline-block;
+        width: 129px;
+        margin-bottom: 10px;
+    }
+
+    .form input {
+        border: 1px solid #8AB512;
+        height: 20px;
+        padding: 1px;
+        display: inline-block;
+        width: 50%;
+        margin-bottom: 10px;
+    }
+
+        .form input[type='text'] {
+            width: 155px;
+        }
+
+        .form input[type='submit'] {
+            width: 75px;
+            background-color: #FFFFFF;
+            color: #8AB512;
+            margin: 10px 0;
+            height: 25px;
+            box-sizing: border-box;
+            display: block;
+        }
+
+    .form textarea {
+        border: 1px solid #8AB512;
+        height: 105px;
+        padding: 1px;
+        display: inline-block;
+        width: 50%;
+        margin-bottom: 10px;
+        width: 155px;
+    }
+
+    .form .multiline_label {
+        vertical-align: top;
+    }
+
+/********HEADER*********/
+header {
+    margin: 0;
+    padding: 0;
+}
+
+    header img {
+        margin: 0 auto;
+    }
+
+nav {
+    margin-top: 15px;
+    background-color: #eceee1;
+    height: 27px;
+    font-family: Verdana;
+    margin: 15px 8px 0;
+    font-size: 0;
+}
+
+    nav ul {
+        padding: 0;
+        margin: 0;
+    }
+
+        nav ul li {
+            height: 27px;
+            margin: 0;
+            width: 100px;
+            display: inline-block;
+            list-style: none;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+            nav ul li a {
+                height: 20px;
+                display: inline-block;
+                width: 100px;
+                padding: 3.5px 0;
+                color: #90918B;
+                text-decoration: none;
+                font-size: 10pt;
+            }
+
+                nav ul li a:hover {
+                    background-color: #DFE7C0;
+                }
+
+.NavHighlight {
+    background-color: #DFE7C0 !important;
+}
+
+.undermenu {
+    height: 17px;
+    background-color: #F7F8F3;
+    font-size: 0pt;
+}
+
+    .undermenu li {
+        height: 17px;
+    }
+
+        .undermenu li a {
+            height: 16px;
+            padding: 0.5px 0;
+            font-size: 8pt;
+        }
+
+            .undermenu li a:hover {
+                background-color: #ECEEE1;
+            }
+
+.HighlightUnderMenu {
+    background-color: #ECEEE1;
+}
+
+/*********CONTENT (MAIN) CONTAINER**********/
+.content {
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+
+    .content a:hover {
+        color: #03730D;
+    }
+
+/*********BUTIKKEN**********/
+.butikken {
+    width: 100%;
+    text-align: left;
+    font-weight: 100;
+}
+
+    .butikken, .butikken th, .butikken td {
+        border: none;
+        border-collapse: collapse;
+    }
+
+        .butikken th {
+            color: white;
+        }
+
+        .butikken tr:nth-of-type(odd) {
+            background-color: #edeee3;
+        }
+
+        .butikken td:last-of-type, .butikken th:last-of-type {
+            text-align: center;
+        }
+
+        .butikken input {
+            width: 36px;
+            border: 1px solid #8ab512;
+            padding: 2px;
+        }
+
+        .butikken tr:first-of-type {
+            background-color: #8ab512;
+        }
+
+        .butikken a {
+            color: #8ab512;
+        }
+
+.udsolgt {
+    color: #cbcbcb;
+}
+
+.opdater_kurv {
+    width: 150px;
+    background-color: white;
+    border: 1px solid #8ab512;
+    color: #8ab512;
+    height: 22px;
+    margin-top: 20px;
+}
+/***********VENSTRE KOLONNE*********/
+
+aside {
+    padding-left: 15px;
+    width: 160px;
+    font-family: 'Trebuchet MS';
+    font-size: 12pt;
+    color: #8AB512;
+    font-weight: 100;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+
+    aside div ul {
+        margin: 0;
+        padding: 0 12px 10px 12px;
+    }
+
+        aside div ul li {
+            list-style: none;
+            padding-left: 20px;
+            background: url('/billeder/assets/menu_prik.jpg') left center no-repeat;
+        }
+
+            aside div ul li a {
+                color: #8AB512;
+                text-decoration: none;
+            }
+
+/********HØJRE KOLONNE********/
+.højre_kolonne {
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+    .højre_kolonne a {
+        color: #8AB512;
+        text-decoration: none;
+        display: block;
+    }
+
+    .højre_kolonne input {
+        border: 1px solid #8AB512;
+        height: 20px;
+        padding: 1px;
+        display: inline-block;
+        width: 50%;
+        margin-bottom: 10px;
+    }
+
+        .højre_kolonne input[type='text'] {
+            width: 155px;
+        }
+
+        .højre_kolonne input[type='password'] {
+            width: 155px;
+        }
+
+        .højre_kolonne input[type='submit'] {
+            width: 75px;
+            background-color: #FFFFFF;
+            color: #8AB512;
+            margin: 5px 0;
+            height: 25px;
+            box-sizing: border-box;
+        }
+
+/*******MAIN*******/
+.main {
+    display: inline-block;
+    width: 424px;
+}
+/********FOOTER**********/
+
+footer {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 10pt;
+}
+
+    footer ul {
+        padding: 0;
+        padding-top: 5px;
+        margin: 0 auto;
+        height: 20px;
+        background-color: #8bb513;
+    }
+
+        footer ul li {
+            display: inline-block;
+            list-style: none;
+        }
+/********KONTAKT********/
+
+.kontakt {
+    width: 155px;
+    padding: 0;
+}
+
+    .kontakt li {
+        list-style: none;
+    }
+
+    .kontakt span:nth-of-type(even) {
+        float: right;
+    }
+/*******FORSIDE*********/
+h1 {
+    Font: Verdana;
+    font-size: 12pt;
+    color: #8AB512;
+    margin: 0;
+    padding-bottom: 25px;
+    line-height: 0;
+}
+
+.forside_ul {
+    width: 45%;
+    padding: 0;
+    display: inline-block;
+}
+
+.forside_h3 {
+    display: inline-block;
+    padding-bottom: 0;
+    margin-bottom: 12px;
+    margin-top: 0;
+}
+
+.forside_ul li {
+    list-style: none;
+}
+
+.forside_ul span:nth-of-type(even) {
+    float: right;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+/***********************ADMIN PANEL******************************/
+
+/************KURV************/
+.kurv th, .kurv tr, .kurv td {
+    border: none;
+    border-collapse: collapse;
+}
+
+.kurv {
+    border-collapse: collapse;
+    border: 1px solid #8ab512;
+}
+
+    .kurv tr:first-of-type, .kurv tr:last-of-type {
+        background-color: #8ab512;
+        color: white;
+    }
+
+    .kurv a {
+        color: white;
+    }
+
+
+/************PRODUKT INFO***********/
+
+section {
+    text-align: justify;
+}
+
+    section div {
+        width: 100%;
+        display: flex;
+        text-align: justify;
+        justify-content: space-between;
+    }
+
+    section p {
+        width: 100%;
+    }
+
+    section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        section ul li {
+            color: black;
+        }
+
+            section ul li h3 {
+                color: black;
+                font-weight: 900;
+                margin: 0;
+            }
+
+    section aside {
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    section a {
+        clear: both;
+        color: #8bb513;
+        text-decoration: none;
+        display: block;
+    }
+
+.koeb_nu {
+    color: black;
+    border: 1px solid #eceee1;
+    text-align: center;
+    width: 170px;
+    height: 125px;
+    float: right;
+}
+
+    .koeb_nu h4 {
+        padding: 4px;
+        background-color: #eceee1;
+        height: 19px;
+        margin: 0;
+        font-weight: 100;
+    }
+
+    .koeb_nu p {
+        font-weight: 900;
+    }
+
+    .koeb_nu label {
+        display: inline-block;
+    }
+
+    .koeb_nu input {
+        border: 1px solid #AAAAAA;
+    }
+
+        .koeb_nu input[type='number'] {
+            display: inline-block;
+            width: 50px;
+            height: 21px;
+        }
+
+        .koeb_nu input[type='submit'] {
+            display: block;
+            width: 130px;
+            height: 25px;
+            margin: 5px auto;
+            background-color: white;
+        }
+
+/*************KASSE************/
+
+.samletpris {
+    border: 1px solid #edeee3;
+}
+
+    .samletpris label:nth-of-type(2) {
+        float: right;
+    }
+
+.bestil {
+    height: 20px;
+    width: 75px;
+    background-color: white;
+    border: 1px solid #8ab512;
+    color: #8ab512;
+    display: block;
+    margin: 20px 0;
+}
+
+.tilbage {
+    color: #8ab512;
+    text-decoration: none;
+    display: block;
+}
+
